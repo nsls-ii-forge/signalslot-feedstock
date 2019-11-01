@@ -13,28 +13,25 @@ source:
 build:
   number: 0
   noarch: "python"
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv "
 
 requirements:
   host:
-    - python >= 3.6
+    - python >=3.6
     - pip
 
   run:
-    - python >= 3.6
+    - python >=3.6
     - contexter
+    - eventlet
     - six
     - weakrefmethod
 
 test:
-  requires:
-    - pytest
   imports:
     - signalslot
     - signalslot.contrib
     - signalslot.contrib.task
-  commands:
-    - pytest
 
 about:
   home: "https://github.com/numergy/signalslot"
@@ -42,4 +39,3 @@ about:
   license_family: "MIT"
   license_file: LICENSE
   summary: "Simple Signal/Slot implementation"
-
